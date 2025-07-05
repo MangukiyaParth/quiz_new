@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f172a;
+  --foreground: #6e6e6e;
+}
+
+body {
+  background: url(/webappbdg.jpg);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro-question-screen-bg {
+  background: url(/bg.png) bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.successintro {
+  position: relative;
+  background-size: 310px;
+  min-height: 210px;
+  width: 100%;
+  max-width: 310px;
+  margin: 0 auto 10px;
+  background-color: #fff;
+  border-radius: 0 60px;
+}
+
+.successintro:after, .successintro:before {
+  content: "";
+  position: absolute;
+}
+
+.successintro:before {
+  background: url(/intro-screen-yellowline.png) no-repeat bottom left;
+  width: 8px;
+  height: 199px;
+  background-size: 100%;
+  top: 0;
+  left: -1px;
+}
+
+.successintro:after {
+  background: url(/intro-screen-blueline.png) no-repeat top right;
+  width: 8px;
+  height: 120px;
+  background-size: 100%;
+  top: 50px;
+  content: "";
+  right: 0;
+}
+
+.successintro .loginbtn {
+  background: transparent url(/button-witouttext.png) no-repeat top right;
+  width: 100%;
+  max-width: 179px;
+  float: right;
+  background-size: cover;
+  margin: 0;
+  margin-right: -16px;
+  line-height: 46px;
+  font-size: 22px;
+  padding: 0 0 20px;
+}
+
+.shimmer {
+  text-align: center;
+  color: rgb(255 255 255 / 0%);
+  background: -webkit-gradient(linear, left top, right top, from(#fff548), to(#fff548), color-stop(.5, #fff));
+  background: -moz-gradient(linear,left top,right top,from(#222),to(#222),color-stop(.5,#fff));
+  background: gradient(linear,left top,right top,from(#222),to(#222),color-stop(.5,#fff));
+  -webkit-background-size: 125px 100%;
+  -moz-background-size: 125px 100%;
+  background-size: 125px 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: shimmer;
+  -moz-animation-name: shimmer;
+  animation-name: shimmer;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: #222;
+  font-size: 22px;
+  text-transform: capitalize;
+  font-weight: 700;
+  background-size: 40px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+.scrollhide::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.bg-bg {
+  background: var(--background);
+}
+
+.border-border {
+  --tw-border-opacity: 1;
+  border-color: #4b5563;
+  border-color: rgb(75 85 99 / 1);
+}
