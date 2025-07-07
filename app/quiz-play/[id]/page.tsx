@@ -114,23 +114,48 @@ export default function Page({params} : PageProps) {
 	return (
 		<div className="px-5 pt-[4rem] pb-20 flex flex-col items-center w-full gap-6"> 
 			
-			<div className="flex flex-col gap-6 md:gap-2 bg-bg rounded-[30px] py-5 w-full">
-				<div className="flex gap-2 items-center w-full">
+			<div className="flex flex-col gap-6 py-5 w-full">
+				<div className="flex justify-between gap-2 items-center w-full">
 					<div><span className="text-[14px] bold">Question {currentIndex + 1}</span><span className="text-[13px]">/15</span></div>
-					<div className={`w-60 ${progress <= 40 ? 'bg-green-200' : (progress <= 80 ? 'bg-orange-200' : 'bg-red-200')} rounded-full h-1`}>
-						<div className={`${progress <= 40 ? 'bg-green-500' : (progress <= 80 ? 'bg-orange-500' : 'bg-red-500')} h-1 rounded-full transition-all duration-300 ease-out`} style={{ width: `${(progress * 100)/120}%` }}></div>
+					<div className="relative w-16 h-16">
+						<svg className="w-full h-full" viewBox="0 0 36 36">
+							{/* Background circle */}
+							<path
+								d="M18 2.0845
+								a 15.9155 15.9155 0 0 1 0 31.831
+								a 15.9155 15.9155 0 0 1 0 -31.831"
+								fill="none"
+								stroke={progress <= 40 ? '#10B981' : progress <= 80 ? '#F59E0B' : '#EF4444'}
+								strokeWidth="3"
+							/>
+							{/* Progress circle */}
+							<path
+								d="M18 2.0845
+								a 15.9155 15.9155 0 0 1 0 31.831
+								a 15.9155 15.9155 0 0 1 0 -31.831"
+								fill="none"
+								stroke="#e6e6e6"
+								strokeWidth="3"
+								strokeDasharray={`${100-((progress * 100)/120)}, 100`}
+								className="transition-all duration-300 ease-out"
+								style={{ strokeLinecap: 'round' }}
+							/>
+						</svg>
+						{/* Optional center text */}
+						<div className="absolute inset-0 flex items-center justify-center text-xs font-medium">
+							{120 - progress}
+						</div>
 					</div>
-					<div className="flex gap-1 items-center justify-center text-[10px] w-20 font-bold text-[text-[#008000]]"><span className="text-lg">{120 - progress}</span></div>
 				</div>
 				
-				<Questions isHomepage={false} currentQuestion={currentQuestion} handleAnswerClick={handleAnswerClick} selectedAnswer={selectedAnswer} correctAnswer={correctAnswer} />
+				<Questions currQuestionIndex={0} isHomepage={false} currentQuestion={currentQuestion} handleAnswerClick={handleAnswerClick} selectedAnswer={selectedAnswer} correctAnswer={correctAnswer} />
 				<div className="flex justify-center items-center gap-1 text-lg font-bold">Your Score : <span className="text-amber-400"> {userCorrectAnswer} </span></div>
 				
-				<div className="max-w-[480px] max-h-[320px] mobile-width">
+				<div className="max-w-[360px] max-h-[320px] mobile-width">
 					<AdBanner slot_id="div-gpt-ad-123456789-7" size={[[300, 250]]} id="/23302694015/QD7" />
 				</div>
 
-				<div className="hidden mt-4 bg-bg_nav min-h-[70px] bottom-[-3rem] fixed left-0 min-w-[520px] max-w-[520px] lgm:min-w-[360px] md:w-full md:min-w-full">
+				<div className="hidden mt-4 bg-bg_nav min-h-[70px] bottom-[-3rem] fixed left-0 min-w-[360px] max-w-[360px] lgm:min-w-[360px] md:w-full md:min-w-full">
 					<div className="h-[1px] bg-border relative">
 						<div className="border-border border-[1px] rounded-full left-[33%] px-3 py-2 flex gap-2 justify-center items-center absolute top-[-18px] bg-bg_nav text-sm cursor-pointer transition-all duration-500 min-w-[30%]">
 							<svg className="MuiSvgIcon-root MuiSvgIcon-fontSize12px css-jpbqk9" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FavoriteIcon" style={{ color: "rgb(2, 121, 211)" }}>

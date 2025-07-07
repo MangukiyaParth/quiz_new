@@ -29,10 +29,8 @@ const GoogleAds = () => {
   }, []);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    window.googletag = window.googletag || { cmd: [] };
-    const googletag = window.googletag;
+    (window as any).googletag = (window as any).googletag || { cmd: [] };
+    const googletag = (window as any).googletag;
 
     const showInterstitial = () => {
       googletag.cmd.push(() => {
@@ -59,7 +57,9 @@ const GoogleAds = () => {
         }
       });
     };
+
     if (prevPath.current && prevPath.current !== pathname) {
+      console.log("inter Call");
       showInterstitial();
     }
     prevPath.current = pathname;

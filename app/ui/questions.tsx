@@ -22,8 +22,8 @@ export default function Questions({isHomepage, currQuestionIndex, currentQuestio
                                 ? 'bg-green-500 border-green-700'
                                 : correctAnswer !== null && selectedAnswer !== null && index === selectedAnswer
                                 ? 'bg-red-500 border-red-700'
-                                : ''
-                        } ${isHomepage ? '' : 'bg-[#20213f] border-[#404380]'} p-3 border-1 rounded-md cursor-pointer`}
+                                : isHomepage ? '' : 'bg-white text-black border-[#404380]'
+                        } p-3 border-1 rounded-md cursor-pointer`}
                     >
                         {option}
                         {

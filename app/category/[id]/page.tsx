@@ -18,7 +18,7 @@ export default function Page({params} : PageProps) {
 	const filteredQuizData = !selectedCategory?.id ? quiz : quiz.filter(q => q.cat_id === selectedCategory.id);
 	return (
 		<div className="px-5 pt-[4rem] pb-20 flex flex-col items-center w-full gap-6">
-			<div className="max-w-[480px] max-h-[320px] mobile-width">
+			<div className="max-w-[360px] max-h-[320px] mobile-width">
 				<AdBanner slot_id="div-gpt-ad-123456789-2" size={[[300, 250]]} id="/23302694015/QD3" />
 			</div>
 			{filteredQuizData.map((quiz) => {

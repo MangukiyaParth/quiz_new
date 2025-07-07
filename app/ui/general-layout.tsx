@@ -61,7 +61,7 @@ export default function GeneralLayout({ children, title }: { children: React.Rea
 								<div className="flex items-center text-white">Daily Reward</div>
 							</div>
 							<div className="flex gap-1 items-center bg-[#1a2f77] px-3 py-1  mx-2 rounded-full">
-								<img className="w-[15px] object-contain" src="/coin.svg" alt="Coins" />
+								<img className="w-7 object-contain" src="/coin.png" alt="Coins" />
 								<div className="flex items-center gap-1 text-xs"><div className="font-bold text-[12px] text-white"> {coins} </div><div className="text-[10px] text-text">COINS</div></div>
 							</div>
 						</div>

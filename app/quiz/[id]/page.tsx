@@ -40,7 +40,7 @@ export default function Page({params} : PageProps) {
 			{ showEarnModal && <EarnCoinModal modalManageFunction={setShowEarnModal} quizId={md5((filteredQuizData?.id ?? 0).toString())} /> }
 			{ !showEarnModal && 
 				<>
-				<div className="max-w-[480px] max-h-[320px] mobile-width">
+				<div className="max-w-[360px] max-h-[320px] mobile-width">
 					<AdBanner slot_id="div-gpt-ad-123456789-6" size={[[300, 250]]} id="/23302694015/QD6" />
 				</div>
 				<div className="flex flex-col gap-6 md:gap-2 bg-bg border-2 border-border rounded-[30px] px-[10px] py-5">
@@ -50,7 +50,7 @@ export default function Page({params} : PageProps) {
 							<div className="text-[10px] text-[#64d2ff] font-black sm:text-[8px]"> {filteredQuizData?.name} </div>
 							<div className="flex gap-1 text-[18px] font-black sm:text-[14px]">
 								Play &amp; Win 
-								<img className="w-[20px] object-contain" src="/coin.svg" alt="Coin" /> 10000
+								<img className="w-[20px] object-contain" src="/coin.png" alt="Coin" /> 10000
 							</div>
 						</div>
 					</div>

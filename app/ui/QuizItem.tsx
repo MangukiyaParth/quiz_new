@@ -18,24 +18,31 @@ export default function QuizItem({quizData, catData}: QuizItemProps) {
         }
     }
     return (
-        <div className="w-full" key={quizData.id} onClick={goToQuiz} >
-            <div className="flex flex-col gap-2 w-full bg-primary border border-border rounded-full py-2 cursor-pointer">
-                <div className="flex gap-2 items-center px-2 justify-between">
-                    <div className="flex flex-col"><img className="object-cover w-24 rounded-full" src={catData.img} alt="CategoryImage" /></div>
-                    <div className="flex flex-col w-full justify-start">
-                        <div className="flex text-[8px] text-text_hd font-black sm:text-[10px] flex-col items-end">
-                            <div className="text-[#64d2ff] max-h-[20px] py-[2px]">
-                                <div className="flex sm:justify-center">{catData.name} &nbsp;| &nbsp;{quizData.name}</div>
+        <div className="w-full" key={quizData.id}>
+            <div className="flex flex-col gap-2 w-full bg-white text-black border border-border rounded-lg p-4">
+                <div className="flex gap-5 items-center justify-between">
+                    <div className="flex flex-col gap-4">
+                        <img className="object-cover w-18 rounded-lg" src={catData.img} alt="CategoryImage" />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <span className='text-sm'>{catData.name}</span>
+                        <div className="flex flex-col">
+                            <div className="font-bold flex gap-2 text-md">
+                                {quizData.name}
+                                <div className="flex items-center gap-1"><img className="w-6 object-contain" src="/coin.png" alt="Coins" />10000</div>
                             </div>
                         </div>
-                        <div className="flex items-end flex-col mt-[5px]">
-                            <div className="text-[10px] sm:text-[14px] font-black flex">Play &amp; Win&nbsp;&nbsp;<img className="w-[20px] object-contain" src="/coin.svg" alt="Coins" />&nbsp;10000</div>
-                        </div>
-                        <div className="flex items-end flex-col mt-[5px]">
-                            <span className="text-[8px] flex gap-1 sm:text-[10px] bg-[#30d158]/20 text-[#30d158] px-2 rounded-full">Entry Fee &nbsp;<img className="w-[14px] object-contain" src="https://playerstorage.b-cdn.net/quiztwiz/assets/coin.svg" alt="Fee" />&nbsp;100</span>
-                        </div>
                     </div>
-                    <div className="flex flex-col"><img src="/play.svg" alt="Play" className="rounded-full object-cover w-24" /></div>
+                </div>
+                <div className="flex items-center gap-5">
+                    <div className="flex flex-wrap items-center gap-1 w-18">
+                        <span className="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
+                        <span className="text-green-400 text-[11px]">Live</span>
+                    </div>
+                    <div className="flex items-center justify-between flex-wrap w-full">
+                        <span className="flex gap-1 text-xs">Entry :<img className="w-6 object-contain" src="/coin.png" alt="Fee" />100</span>
+                        <button className="text-[10px] border-1 border-purple-700 rounded-sm px-4 py-1 cursor-pointer" onClick={goToQuiz}>PLAY NOW</button>
+                    </div>
                 </div>
             </div>
         </div>
